@@ -62,9 +62,9 @@ public class LibraryBookReturnTracker {
             System.out.println("Stack is empty.");
         }
         Node current = top;
-        String result = "\t\t--- Current Stack ---\n";
+        String result = "\t--- BOOK ID ---     ||    --- BOOK TITLE ---\n\n";
         while (current != null) {
-            result += "\t\t[ID: " + current.id + "] " + current.title + "\n";
+            result += "\t\t[ID: " + current.id + "]  ||  " + current.title + "\n";
             current = current.next; // Move to the next node
         }
         return result;

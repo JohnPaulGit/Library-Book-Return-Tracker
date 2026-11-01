@@ -121,6 +121,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         ReturnedButton.setBackground(new java.awt.Color(255, 255, 255));
         ReturnedButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        ReturnedButton.setForeground(new java.awt.Color(0, 0, 0));
         ReturnedButton.setText("Returned");
         ReturnedButton.setBorder(null);
         ReturnedButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +137,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        RemoveButton.setForeground(new java.awt.Color(0, 0, 0));
         RemoveButton.setText("Pop");
         RemoveButton.setBorder(null);
         RemoveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +153,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         SearchButton.setBackground(new java.awt.Color(255, 255, 255));
         SearchButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        SearchButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchButton.setText("Search");
         SearchButton.setBorder(null);
         SearchButton.addActionListener(new java.awt.event.ActionListener() {
