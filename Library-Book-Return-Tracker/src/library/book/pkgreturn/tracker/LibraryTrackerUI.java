@@ -10,9 +10,10 @@ package library.book.pkgreturn.tracker;
  */
 public class LibraryTrackerUI extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LibraryTrackerUI.class.getName());
     int xMouse;
     int yMouse;
+
+    private LibraryBookReturnTracker bookStack = new LibraryBookReturnTracker();
 
     /**
      * Creates new form LibraryTrackerUI
@@ -49,7 +50,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookIDSearch = new javax.swing.JTextField();
         BookTitleText1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        DisplayArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -173,9 +174,11 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         MainFrame.add(ActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 350, 490));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        DisplayArea.setColumns(20);
+        DisplayArea.setFont(new java.awt.Font("SimSun-ExtB", 0, 24)); // NOI18N
+        DisplayArea.setForeground(new java.awt.Color(0, 0, 0));
+        DisplayArea.setRows(5);
+        jScrollPane1.setViewportView(DisplayArea);
 
         MainFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 670, 590));
 
@@ -205,11 +208,32 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
-        // TODO add your handling code here:
+        try {
+// Grab inputs
+            int id = Integer.parseInt(BookID.getText());
+            String title = BookTitle.getText();
+            // Check if empty or if ID contains anything other than numbers
+
+            // Push to stack
+            bookStack.push(id, title);
+            // Update display and clear fields
+            DisplayArea.setText(bookStack.display());
+            BookID.setText("");
+            BookTitle.setText("");
+        } catch (Exception e){
+        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid ID or Title!");
+        }
     }//GEN-LAST:event_ReturnedButtonActionPerformed
 
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
-        // TODO add your handling code here:
+        String processedBook = bookStack.pop();
+
+        if (processedBook != null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n" + processedBook);
+            DisplayArea.setText(bookStack.display());
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
+        }
     }//GEN-LAST:event_RemoveButtonActionPerformed
 
     private void BookIDSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookIDSearchActionPerformed
@@ -225,16 +249,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -250,6 +265,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     private javax.swing.JTextField BookTitle;
     private javax.swing.JLabel BookTitleText;
     private javax.swing.JLabel BookTitleText1;
+    private javax.swing.JTextArea DisplayArea;
     private javax.swing.JButton ExitButton;
     private javax.swing.JPanel FramePanel;
     private javax.swing.JLabel LibraryHeader;
@@ -261,6 +277,5 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     private javax.swing.JButton SearchButton;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
