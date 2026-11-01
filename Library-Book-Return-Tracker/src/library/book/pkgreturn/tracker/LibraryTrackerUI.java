@@ -35,7 +35,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         FramePanel = new javax.swing.JPanel();
         LibraryHeader = new javax.swing.JLabel();
         ExitButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        RecordedBooksDetailsLabel = new javax.swing.JLabel();
         BookReturnPanel = new javax.swing.JPanel();
         BookTitleText = new javax.swing.JLabel();
         BookTitle = new javax.swing.JTextField();
@@ -92,10 +92,10 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         MainFrame.add(FramePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 70));
 
-        jLabel3.setFont(new java.awt.Font("SimSun-ExtB", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Recorded Books Details");
-        MainFrame.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, 30));
+        RecordedBooksDetailsLabel.setFont(new java.awt.Font("SimSun-ExtB", 1, 36)); // NOI18N
+        RecordedBooksDetailsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        RecordedBooksDetailsLabel.setText("Recorded Books Details");
+        MainFrame.add(RecordedBooksDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, 30));
 
         BookReturnPanel.setBackground(new java.awt.Color(16, 33, 67));
         BookReturnPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -104,12 +104,16 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookTitleText.setForeground(new java.awt.Color(255, 255, 255));
         BookTitleText.setText("Book Title:");
         BookReturnPanel.add(BookTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, 30));
+
+        BookTitle.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         BookReturnPanel.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, -1));
 
         BookIdText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         BookIdText.setForeground(new java.awt.Color(255, 255, 255));
         BookIdText.setText("Book ID:");
         BookReturnPanel.add(BookIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 30));
+
+        BookID.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         BookReturnPanel.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, -1));
 
         MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 350, 170));
@@ -162,12 +166,6 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             }
         });
         ActionPanel.add(SearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 190, 40));
-
-        BookIDSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookIDSearchActionPerformed(evt);
-            }
-        });
         ActionPanel.add(BookIDSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 300, 40));
 
         BookTitleText1.setFont(new java.awt.Font("SimSun", 2, 24)); // NOI18N
@@ -243,19 +241,18 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ReturnedButtonActionPerformed
 
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
-        String processedBook = bookStack.pop();
-
-        if (processedBook != null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n" + processedBook);
+        
+        try {
+            String processedBook = bookStack.pop();
+            if (processedBook != null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n " + processedBook);
             DisplayArea.setText(bookStack.display());
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
         }
+        } catch (Exception e) {
+             javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
+        }
+        
     }//GEN-LAST:event_RemoveButtonActionPerformed
-
-    private void BookIDSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookIDSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BookIDSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,12 +284,12 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     private javax.swing.JPanel FramePanel;
     private javax.swing.JLabel LibraryHeader;
     private javax.swing.JPanel MainFrame;
+    private javax.swing.JLabel RecordedBooksDetailsLabel;
     private javax.swing.JButton RemoveButton;
     private javax.swing.JTextArea RemoveTextArea;
     private javax.swing.JTextArea ReturnTextArea;
     private javax.swing.JButton ReturnedButton;
     private javax.swing.JButton SearchButton;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

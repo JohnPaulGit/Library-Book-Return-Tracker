@@ -45,7 +45,7 @@ public class LibraryBookReturnTracker {
             System.out.println("Stack Underflow! Stack is empty.");
         }
         // Importante! diri ang call para sa display!!
-        String processedBook = "\t\tID: " + top.id + " - " + top.title;
+        String processedBook = "\t\tID: " + top.id + " - Title: " + top.title;
         // Move top to the next node
         top = top.next;
         return processedBook;
@@ -64,7 +64,7 @@ public class LibraryBookReturnTracker {
         Node current = top;
         String result = "\t--- BOOK ID ---     ||    --- BOOK TITLE ---\n\n";
         while (current != null) {
-            result += "\t\t[ID: " + current.id + "]  ||  " + current.title + "\n";
+            result += "\t\t[ID: " + current.id + "]        " + current.title + "\n";
             current = current.next; // Move to the next node
         }
         return result;
