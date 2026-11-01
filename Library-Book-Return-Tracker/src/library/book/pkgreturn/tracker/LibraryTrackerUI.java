@@ -208,6 +208,20 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
+        try {
+        // Get the ID entered by the user
+        int searchID = Integer.parseInt(BookIDSearch.getText());
+
+        // Perform Linear Search
+        String result = bookStack.searchBook(searchID);
+
+        // Display the search result
+        javax.swing.JOptionPane.showMessageDialog(this, result);
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Please enter a valid Book ID!");
+    }
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
