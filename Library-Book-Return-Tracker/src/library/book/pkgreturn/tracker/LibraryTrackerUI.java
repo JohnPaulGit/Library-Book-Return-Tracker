@@ -45,6 +45,11 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ReturnTextArea = new javax.swing.JTextArea();
         RemoveButton = new javax.swing.JButton();
         RemoveTextArea = new javax.swing.JTextArea();
+        SearchButton = new javax.swing.JButton();
+        BookIDSearch = new javax.swing.JTextField();
+        BookTitleText1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -86,10 +91,10 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         MainFrame.add(FramePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 70));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SimSun-ExtB", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Book Details");
-        MainFrame.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, 150, 30));
+        jLabel3.setText("Recorded Books Details");
+        MainFrame.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, -1, 30));
 
         BookReturnPanel.setBackground(new java.awt.Color(16, 33, 67));
         BookReturnPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +111,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookReturnPanel.add(BookIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 30));
         BookReturnPanel.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, -1));
 
-        MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 350, 170));
+        MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 350, 170));
 
         ActionPanel.setBackground(new java.awt.Color(16, 33, 67));
         ActionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Action Perform", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Segoe UI Light", 0, 14), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -126,7 +131,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         ReturnTextArea.setColumns(20);
         ReturnTextArea.setRows(5);
-        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 300, 40));
+        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
@@ -141,9 +146,38 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         RemoveTextArea.setColumns(20);
         RemoveTextArea.setRows(5);
-        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 300, 40));
+        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
 
-        MainFrame.add(ActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 350, 320));
+        SearchButton.setBackground(new java.awt.Color(255, 255, 255));
+        SearchButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        SearchButton.setText("Search");
+        SearchButton.setBorder(null);
+        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchButtonActionPerformed(evt);
+            }
+        });
+        ActionPanel.add(SearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 190, 40));
+
+        BookIDSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BookIDSearchActionPerformed(evt);
+            }
+        });
+        ActionPanel.add(BookIDSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 300, 40));
+
+        BookTitleText1.setFont(new java.awt.Font("SimSun", 2, 24)); // NOI18N
+        BookTitleText1.setForeground(new java.awt.Color(255, 255, 255));
+        BookTitleText1.setText("Search_Book_ID");
+        ActionPanel.add(BookTitleText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 180, 30));
+
+        MainFrame.add(ActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 350, 490));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        MainFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 670, 590));
 
         getContentPane().add(MainFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 760));
 
@@ -166,13 +200,21 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
-    private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveButtonActionPerformed
+    }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnedButtonActionPerformed
+
+    private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveButtonActionPerformed
+
+    private void BookIDSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookIDSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookIDSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,10 +244,12 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ActionPanel;
     private javax.swing.JTextField BookID;
+    private javax.swing.JTextField BookIDSearch;
     private javax.swing.JLabel BookIdText;
     private javax.swing.JPanel BookReturnPanel;
     private javax.swing.JTextField BookTitle;
     private javax.swing.JLabel BookTitleText;
+    private javax.swing.JLabel BookTitleText1;
     private javax.swing.JButton ExitButton;
     private javax.swing.JPanel FramePanel;
     private javax.swing.JLabel LibraryHeader;
@@ -214,6 +258,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     private javax.swing.JTextArea RemoveTextArea;
     private javax.swing.JTextArea ReturnTextArea;
     private javax.swing.JButton ReturnedButton;
+    private javax.swing.JButton SearchButton;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
