@@ -34,18 +34,27 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         FramePanel = new javax.swing.JPanel();
         LibraryHeader = new javax.swing.JLabel();
         ExitButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        BookReturnPanel = new javax.swing.JPanel();
+        BookTitleText = new javax.swing.JLabel();
+        BookTitle = new javax.swing.JTextField();
+        BookIdText = new javax.swing.JLabel();
+        BookID = new javax.swing.JTextField();
+        ReturnedButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        MainFrame.setBackground(new java.awt.Color(2, 15, 45));
+        MainFrame.setBackground(new java.awt.Color(16, 33, 67));
         MainFrame.setMinimumSize(new java.awt.Dimension(1160, 760));
         MainFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        FramePanel.setBackground(new java.awt.Color(16, 55, 95));
-        FramePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        FramePanel.setBackground(new java.awt.Color(2, 15, 45));
+        FramePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        FramePanel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         FramePanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 FramePanelMouseDragged(evt);
@@ -56,46 +65,68 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
                 FramePanelMousePressed(evt);
             }
         });
+        FramePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LibraryHeader.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        LibraryHeader.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         LibraryHeader.setForeground(new java.awt.Color(255, 255, 255));
         LibraryHeader.setText("LIBRARY BOOK RETURN TRACKER");
+        FramePanel.add(LibraryHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 463, 50));
 
+        ExitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ExitButton.setText("X");
+        ExitButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExitButtonMouseClicked(evt);
             }
         });
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
+        FramePanel.add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 40, 30));
 
-        javax.swing.GroupLayout FramePanelLayout = new javax.swing.GroupLayout(FramePanel);
-        FramePanel.setLayout(FramePanelLayout);
-        FramePanelLayout.setHorizontalGroup(
-            FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FramePanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(LibraryHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 679, Short.MAX_VALUE)
-                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        FramePanelLayout.setVerticalGroup(
-            FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FramePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LibraryHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(FramePanelLayout.createSequentialGroup()
-                        .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                        .addContainerGap())))
-        );
+        MainFrame.add(FramePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 70));
 
-        MainFrame.add(FramePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 50));
+        jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Book Details");
+        MainFrame.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 100, 150, 30));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Book Details");
-        MainFrame.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 150, 30));
+        BookReturnPanel.setBackground(new java.awt.Color(16, 33, 67));
+        BookReturnPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BookTitleText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        BookTitleText.setForeground(new java.awt.Color(255, 255, 255));
+        BookTitleText.setText("Book Title:");
+        BookReturnPanel.add(BookTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, 30));
+        BookReturnPanel.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 260, -1));
+
+        BookIdText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        BookIdText.setForeground(new java.awt.Color(255, 255, 255));
+        BookIdText.setText("Book ID:");
+        BookReturnPanel.add(BookIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 30));
+        BookReturnPanel.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 260, -1));
+
+        ReturnedButton.setBackground(new java.awt.Color(255, 255, 255));
+        ReturnedButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        ReturnedButton.setText("Returned - Display");
+        ReturnedButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        ReturnedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReturnedButtonActionPerformed(evt);
+            }
+        });
+        BookReturnPanel.add(ReturnedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 190, 30));
+
+        MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 320, 230));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        MainFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 270, 50));
 
         getContentPane().add(MainFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 760));
 
@@ -117,6 +148,14 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_FramePanelMousePressed
+
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_ExitButtonActionPerformed
+
+    private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReturnedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,10 +183,18 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BookID;
+    private javax.swing.JLabel BookIdText;
+    private javax.swing.JPanel BookReturnPanel;
+    private javax.swing.JTextField BookTitle;
+    private javax.swing.JLabel BookTitleText;
     private javax.swing.JButton ExitButton;
     private javax.swing.JPanel FramePanel;
     private javax.swing.JLabel LibraryHeader;
     private javax.swing.JPanel MainFrame;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ReturnedButton;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
