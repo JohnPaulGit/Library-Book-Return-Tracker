@@ -69,7 +69,26 @@ public class LibraryBookReturnTracker {
         }
         return result;
     }
+    // Linear Search: Search para sa book gamit ID
+    public String searchBook(int searchID) {
 
+         Node current = top;
+
+    // Check each book in the stack
+          while (current != null) {
+
+        if (current.id == searchID) {
+            return "\t\tBOOK FOUND!\n"
+                    + "\t\tBook ID: " + current.id + "\n"
+                    + "\t\tBook Title: " + current.title;
+        }
+
+        // Move to the next node
+        current = current.next;
+    }
+
+    return "\t\tBOOK NOT FOUND!";
+}
     public static void main(String[] args) {
         // TODO code application logic here
     }
