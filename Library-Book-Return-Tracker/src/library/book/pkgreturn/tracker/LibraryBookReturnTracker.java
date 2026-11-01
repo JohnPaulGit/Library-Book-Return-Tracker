@@ -10,63 +10,66 @@ public class LibraryBookReturnTracker {
     //Node 
     private class Node {
 
-        int data;
+        int id;
+        String title;
         Node next;
         //Constructor
 
-        Node(int data) {
-            this.data = data;
+        Node(int id, String title) {
+            this.id = id;
+            this.title = title;
             this.next = null;
         }
     }
     //Top Book of Stack
     private Node top;
-    
+
     //Constructor
     public LibraryBookReturnTracker() {
         top = null;
     }
-    
+
     // Add a returned book to the stack (push operation)
-    public void push(int value) {
+    public void push(int id, String title) {
         // Create a new node
-        Node newNode = new Node(value);
+        Node newNode = new Node(id, title);
         // Connect the new node to the current top
         newNode.next = top;
         // Make the new node the new top
         top = newNode;
-        System.out.println(value + " pushed into the stack.");
     }
-    
+
     // Process the most recent return (pop operation)
-    public int pop() {
+    public String pop() {
         if (isEmpty()) {
             System.out.println("Stack Underflow! Stack is empty.");
-            return -1;
         }
-        // Store the value of the top node
-        int value = top.data;
+        // Importante! diri ang call para sa display!!
+        String processedBook = "\t\tID: " + top.id + " - " + top.title;
         // Move top to the next node
         top = top.next;
-        return value;
+        return processedBook;
     }
+
     // Check if the stack is empty
     public boolean isEmpty() {
         return top == null;
     }
+
     // Display the return stack
-    public void display() {
+    public String display() {
         if (isEmpty()) {
             System.out.println("Stack is empty.");
-            return;
         }
         Node current = top;
-        System.out.println("Stack elements:");
+        String result = "\t\t--- Current Stack ---\n";
         while (current != null) {
-            System.out.println(current.data);
-            current = current.next;
+            result += "\t\t[ID: " + current.id + "] " + current.title + "\n";
+            current = current.next; // Move to the next node
         }
+        return result;
     }
+
     public static void main(String[] args) {
         // TODO code application logic here
     }
