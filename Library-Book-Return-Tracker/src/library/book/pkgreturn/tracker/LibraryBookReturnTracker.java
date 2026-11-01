@@ -37,7 +37,23 @@ public class LibraryBookReturnTracker {
         top = newNode;
         System.out.println(value + " pushed into the stack.");
     }
-
+    
+    // Process the most recent return (pop operation)
+    public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow! Stack is empty.");
+            return -1;
+        }
+        // Store the value of the top node
+        int value = top.data;
+        // Move top to the next node
+        top = top.next;
+        return value;
+    }
+    // Check if the stack is empty
+    public boolean isEmpty() {
+        return top == null;
+    }
     public static void main(String[] args) {
         // TODO code application logic here
     }
