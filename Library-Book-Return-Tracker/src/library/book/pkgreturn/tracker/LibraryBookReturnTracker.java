@@ -54,6 +54,19 @@ public class LibraryBookReturnTracker {
     public boolean isEmpty() {
         return top == null;
     }
+    // Display the return stack
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty.");
+            return;
+        }
+        Node current = top;
+        System.out.println("Stack elements:");
+        while (current != null) {
+            System.out.println(current.data);
+            current = current.next;
+        }
+    }
     public static void main(String[] args) {
         // TODO code application logic here
     }

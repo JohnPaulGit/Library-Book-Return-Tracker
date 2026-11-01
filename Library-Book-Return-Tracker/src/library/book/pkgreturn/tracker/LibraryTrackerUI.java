@@ -9,8 +9,10 @@ package library.book.pkgreturn.tracker;
  * @author Zequrox
  */
 public class LibraryTrackerUI extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LibraryTrackerUI.class.getName());
+    int xMouse;
+    int yMouse;
 
     /**
      * Creates new form LibraryTrackerUI
@@ -28,21 +30,93 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        MainFrame = new javax.swing.JPanel();
+        FramePanel = new javax.swing.JPanel();
+        LibraryHeader = new javax.swing.JLabel();
+        ExitButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MainFrame.setBackground(new java.awt.Color(2, 15, 45));
+        MainFrame.setMinimumSize(new java.awt.Dimension(1160, 760));
+        MainFrame.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FramePanel.setBackground(new java.awt.Color(16, 55, 95));
+        FramePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        FramePanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                FramePanelMouseDragged(evt);
+            }
+        });
+        FramePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                FramePanelMousePressed(evt);
+            }
+        });
+
+        LibraryHeader.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
+        LibraryHeader.setForeground(new java.awt.Color(255, 255, 255));
+        LibraryHeader.setText("LIBRARY BOOK RETURN TRACKER");
+
+        ExitButton.setText("X");
+        ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FramePanelLayout = new javax.swing.GroupLayout(FramePanel);
+        FramePanel.setLayout(FramePanelLayout);
+        FramePanelLayout.setHorizontalGroup(
+            FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FramePanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(LibraryHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 679, Short.MAX_VALUE)
+                .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        FramePanelLayout.setVerticalGroup(
+            FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FramePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FramePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LibraryHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(FramePanelLayout.createSequentialGroup()
+                        .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
+
+        MainFrame.add(FramePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Book Details");
+        MainFrame.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 150, 30));
+
+        getContentPane().add(MainFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 760));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ExitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_ExitButtonMouseClicked
+
+    private void FramePanelMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramePanelMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_FramePanelMouseDragged
+
+    private void FramePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FramePanelMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_FramePanelMousePressed
 
     /**
      * @param args the command line arguments
@@ -70,5 +144,10 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ExitButton;
+    private javax.swing.JPanel FramePanel;
+    private javax.swing.JLabel LibraryHeader;
+    private javax.swing.JPanel MainFrame;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
