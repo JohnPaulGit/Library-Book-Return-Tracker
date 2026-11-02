@@ -125,7 +125,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ActionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ReturnedButton.setBackground(new java.awt.Color(255, 255, 255));
-        ReturnedButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        ReturnedButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         ReturnedButton.setForeground(new java.awt.Color(0, 0, 0));
         ReturnedButton.setText("Returned");
         ReturnedButton.setBorder(null);
@@ -141,7 +141,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        RemoveButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         RemoveButton.setForeground(new java.awt.Color(0, 0, 0));
         RemoveButton.setText("Pop");
         RemoveButton.setBorder(null);
@@ -167,9 +167,11 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             }
         });
         ActionPanel.add(SearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 190, 40));
+
+        BookIDSearch.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ActionPanel.add(BookIDSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 300, 40));
 
-        BookTitleText1.setFont(new java.awt.Font("SimSun", 2, 24)); // NOI18N
+        BookTitleText1.setFont(new java.awt.Font("Tw Cen MT", 2, 24)); // NOI18N
         BookTitleText1.setForeground(new java.awt.Color(255, 255, 255));
         BookTitleText1.setText("Search_Book_ID");
         ActionPanel.add(BookTitleText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 180, 30));
