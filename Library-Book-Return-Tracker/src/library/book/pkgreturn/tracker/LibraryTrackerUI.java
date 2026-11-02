@@ -245,6 +245,12 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             int id = Integer.parseInt(BookID.getText());
             String title = BookTitle.getText();
             
+                 // Check if ID is positive and title is not empty
+            if (id <= 0 || title.isEmpty()) {
+                  javax.swing.JOptionPane.showMessageDialog(this,
+                       "Please enter a valid ID and Title!");
+            return;
+        }
             //Error message kung naa na ang id og title sa stack    
             String currentScreenText = DisplayArea.getText();  
             
