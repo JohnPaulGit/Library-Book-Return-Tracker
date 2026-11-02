@@ -49,6 +49,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         SearchButton = new javax.swing.JButton();
         BookIDSearch = new javax.swing.JTextField();
         BookTitleText1 = new javax.swing.JLabel();
+        FrameForDisplay = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         DisplayArea = new javax.swing.JTextArea();
 
@@ -105,7 +106,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookTitleText.setText("Book Title:");
         BookReturnPanel.add(BookTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, 30));
 
-        BookTitle.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        BookTitle.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         BookReturnPanel.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, -1));
 
         BookIdText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -113,7 +114,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookIdText.setText("Book ID:");
         BookReturnPanel.add(BookIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 30));
 
-        BookID.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        BookID.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         BookReturnPanel.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, -1));
 
         MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 350, 170));
@@ -175,13 +176,19 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
 
         MainFrame.add(ActionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 350, 490));
 
+        FrameForDisplay.setBackground(new java.awt.Color(2, 15, 45));
+        FrameForDisplay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        FrameForDisplay.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         DisplayArea.setColumns(20);
         DisplayArea.setFont(new java.awt.Font("SimSun-ExtB", 0, 24)); // NOI18N
         DisplayArea.setForeground(new java.awt.Color(0, 0, 0));
         DisplayArea.setRows(5);
         jScrollPane1.setViewportView(DisplayArea);
 
-        MainFrame.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 670, 590));
+        FrameForDisplay.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 690, 580));
+
+        MainFrame.add(FrameForDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 730, 660));
 
         getContentPane().add(MainFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 760));
 
@@ -205,63 +212,63 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        
-String input = BookIDSearch.getText().trim();
+
+        String input = BookIDSearch.getText().trim();
 
 // Check if the search field is empty
-    if (input.isEmpty()) {
-    javax.swing.JOptionPane.showMessageDialog(this,
-            "Please enter a Book ID!");
-    return;
-    }
+        if (input.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Please enter a Book ID!");
+            return;
+        }
 
         try {
-    // Convert the input into an integer
-        int searchID = Integer.parseInt(input);
+            // Convert the input into an integer
+            int searchID = Integer.parseInt(input);
 
-    // Perform Linear Search
-         String result = bookStack.searchBook(searchID);
+            // Perform Linear Search
+            String result = bookStack.searchBook(searchID);
 
-    // Display the search result
-        javax.swing.JOptionPane.showMessageDialog(this, result);
+            // Display the search result
+            javax.swing.JOptionPane.showMessageDialog(this, result);
 
-    } catch (NumberFormatException e) {
-      javax.swing.JOptionPane.showMessageDialog(this,
-            "Invalid Book ID! Please enter numbers only.");
-    }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Invalid Book ID! Please enter numbers only.");
+        }
 
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
         try {
-// Grab inputs
+            // Grab inputs
             int id = Integer.parseInt(BookID.getText());
             String title = BookTitle.getText();
-            // Check if empty or if ID contains anything other than numbers
-
+            
+            
             // Push to stack
             bookStack.push(id, title);
             // Update display and clear fields
             DisplayArea.setText(bookStack.display());
             BookID.setText("");
             BookTitle.setText("");
-        } catch (Exception e){
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid ID or Title!");
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid ID or Title!");
         }
     }//GEN-LAST:event_ReturnedButtonActionPerformed
 
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
-        
+
         try {
             String processedBook = bookStack.pop();
             if (processedBook != null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n " + processedBook);
-            DisplayArea.setText(bookStack.display());
-        }
+                javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n " + processedBook);
+                DisplayArea.setText(bookStack.display());
+            }
         } catch (Exception e) {
-             javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
+            javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
         }
-        
+
     }//GEN-LAST:event_RemoveButtonActionPerformed
 
     /**
@@ -291,6 +298,7 @@ String input = BookIDSearch.getText().trim();
     private javax.swing.JLabel BookTitleText1;
     private javax.swing.JTextArea DisplayArea;
     private javax.swing.JButton ExitButton;
+    private javax.swing.JPanel FrameForDisplay;
     private javax.swing.JPanel FramePanel;
     private javax.swing.JLabel LibraryHeader;
     private javax.swing.JPanel MainFrame;
