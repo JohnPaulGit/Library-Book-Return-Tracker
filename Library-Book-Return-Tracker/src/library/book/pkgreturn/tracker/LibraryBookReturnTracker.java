@@ -1,53 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package library.book.pkgreturn.tracker;
 
 public class LibraryBookReturnTracker {
-// >>>>>>>>>>>>>>>>>>>>> LINKED LIST LOGIC PARA SA STACK <<<<<<<<<<<<<<<<<<<<<<<< //
 
-    //Node 
+    // LINKED LIST LOGIC FOR STACK
+
+    // Node
     private class Node {
 
         int id;
         String title;
         Node next;
-        //Constructor
 
+        // Constructor
         Node(int id, String title) {
             this.id = id;
             this.title = title;
             this.next = null;
         }
     }
-    //Top Book of Stack
+
+    // Top Book of Stack
     private Node top;
 
-    //Constructor
+    // Constructor
     public LibraryBookReturnTracker() {
         top = null;
     }
 
+    // Check if a Book ID already exists
+    public boolean containsBook(int searchID) {
+
+        Node current = top;
+
+        while (current != null) {
+
+            if (current.id == searchID) {
+                return true;
+            }
+
+            current = current.next;
+        }
+
+        return false;
+    }
+
     // Add a returned book to the stack (push operation)
     public void push(int id, String title) {
-        // Create a new node
+
         Node newNode = new Node(id, title);
-        // Connect the new node to the current top
+
         newNode.next = top;
-        // Make the new node the new top
         top = newNode;
     }
 
     // Process the most recent return (pop operation)
     public String pop() {
+
         if (isEmpty()) {
-            System.out.println("Stack Underflow! Stack is empty.");
+            return "Stack Underflow! Stack is empty.";
         }
-        // Importante! diri ang call para sa display!!
-        String processedBook = "\t\tID: " + top.id + " - Title: " + top.title;
-        // Move top to the next node
+
+        String processedBook = "\t\tID: " + top.id
+                + " - Title: " + top.title;
+
         top = top.next;
+
         return processedBook;
     }
 
@@ -58,39 +76,48 @@ public class LibraryBookReturnTracker {
 
     // Display the return stack
     public String display() {
+
         if (isEmpty()) {
-            System.out.println("Stack is empty.");
+            return "Stack is empty.";
         }
+
         Node current = top;
         String result = "\t--- BOOK ID ---     ||    --- BOOK TITLE ---\n\n";
+
         while (current != null) {
-            result += "\t\t[ID: " + current.id + "]        " + current.title + "\n";
-            current = current.next; // Move to the next node
+
+            result += "\t\t[ID: " + current.id + "]        "
+                    + current.title + "\n";
+
+            current = current.next;
         }
+
         return result;
     }
-    // Linear Search: Search para sa book gamit ID
+
+    // Linear Search: Search for a book using its ID
     public String searchBook(int searchID) {
 
-         Node current = top;
+        Node current = top;
 
-    // Check each book in the stack
-          while (current != null) {
+        while (current != null) {
 
-        if (current.id == searchID) {
-            return "\t\tBOOK FOUND!\n"
-                    + "\t\tBook ID: " + current.id + "\n"
-                    + "\t\tBook Title: " + current.title;
+            if (current.id == searchID) {
+                return "Book Found!\n\n"
+                        + "Book ID: " + current.id + "\n"
+                        + "Book Title: " + current.title + "\n\n"
+                        + "The book is currently in the return stack.";
+            }
+
+            current = current.next;
         }
 
-        // Move to the next node
-        current = current.next;
+        return "Book Not Found!\n\n"
+                + "No book with ID " + searchID
+                + " exists in the current return stack.";
     }
 
-    return "\t\tBOOK NOT FOUND!";
-}
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Main method
     }
-
 }

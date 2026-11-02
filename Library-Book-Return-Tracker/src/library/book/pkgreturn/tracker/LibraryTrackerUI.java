@@ -233,21 +233,39 @@ String input = BookIDSearch.getText().trim();
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
-        try {
-// Grab inputs
-            int id = Integer.parseInt(BookID.getText());
-            String title = BookTitle.getText();
-            // Check if empty or if ID contains anything other than numbers
+         try {
+        // Get the Book ID and Title
+        int id = Integer.parseInt(BookID.getText().trim());
+        String title = BookTitle.getText().trim();
 
-            // Push to stack
-            bookStack.push(id, title);
-            // Update display and clear fields
-            DisplayArea.setText(bookStack.display());
-            BookID.setText("");
-            BookTitle.setText("");
-        } catch (Exception e){
-        javax.swing.JOptionPane.showMessageDialog(this, "Please enter a valid ID or Title!");
+        // Check if ID is positive and title is not empty
+        if (id <= 0 || title.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Please enter a valid ID and Title!");
+            return;
         }
+
+        // Check if the Book ID already exists
+        if (bookStack.containsBook(id)) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Book ID already exists!");
+            return;
+        }
+
+        // Add the book to the stack
+        bookStack.push(id, title);
+
+        // Update the display
+        DisplayArea.setText(bookStack.display());
+
+        // Clear the input fields
+        BookID.setText("");
+        BookTitle.setText("");
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Book ID must contain numbers only!");
+    }
     }//GEN-LAST:event_ReturnedButtonActionPerformed
 
     private void RemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveButtonActionPerformed
