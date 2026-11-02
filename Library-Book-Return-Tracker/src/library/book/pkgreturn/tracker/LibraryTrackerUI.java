@@ -137,8 +137,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ActionPanel.add(ReturnedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 190, 30));
 
         RemoveTextArea.setColumns(20);
+        RemoveTextArea.setFont(new java.awt.Font("SimSun-ExtB", 1, 12)); // NOI18N
         RemoveTextArea.setRows(5);
-        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
+        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 330, 40));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
@@ -153,8 +154,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ActionPanel.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 190, 30));
 
         ReturnTextArea.setColumns(20);
+        ReturnTextArea.setFont(new java.awt.Font("SimSun-ExtB", 1, 12)); // NOI18N
         ReturnTextArea.setRows(5);
-        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
+        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 330, 40));
 
         SearchButton.setBackground(new java.awt.Color(255, 255, 255));
         SearchButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
@@ -268,7 +270,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             
             // Update display and clear fields
             DisplayArea.setText(bookStack.display());
-            ReturnTextArea.setText("RECENT RETURN: [ID: " + id + "] " + title);
+            ReturnTextArea.setText("\tRECENT RETURN: [ID: " + id + "] " + title);
             BookID.setText("");
             BookTitle.setText("");
         } catch (Exception e) {
@@ -283,11 +285,13 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             if (processedBook != null) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n " + processedBook);
                 DisplayArea.setText(bookStack.display());
+                RemoveTextArea.setText("Just Popped: \n" + processedBook);
+                ReturnTextArea.setText("");
             }
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
-            RemoveTextArea.setText("");
             ReturnTextArea.setText("Recent Return: None");
+            RemoveTextArea.setText("Nothing was Processed");
         }
 
     }//GEN-LAST:event_RemoveButtonActionPerformed
