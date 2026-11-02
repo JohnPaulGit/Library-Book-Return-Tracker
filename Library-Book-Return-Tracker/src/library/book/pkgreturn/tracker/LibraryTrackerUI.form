@@ -261,7 +261,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextArea" name="wadsda">
+            <Component class="javax.swing.JTextArea" name="RemoveTextArea">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
@@ -297,7 +297,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextArea" name="dawoidasd">
+            <Component class="javax.swing.JTextArea" name="ReturnTextArea">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
