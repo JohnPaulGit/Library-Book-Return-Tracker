@@ -106,7 +106,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookTitleText.setText("Book Title:");
         BookReturnPanel.add(BookTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 120, 30));
 
-        BookTitle.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        BookTitle.setFont(new java.awt.Font("Segoe UI Historic", 0, 18)); // NOI18N
         BookReturnPanel.add(BookTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 290, -1));
 
         BookIdText.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -114,7 +114,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookIdText.setText("Book ID:");
         BookReturnPanel.add(BookIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 100, 30));
 
-        BookID.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        BookID.setFont(new java.awt.Font("Segoe UI Historic", 0, 18)); // NOI18N
         BookReturnPanel.add(BookID, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 290, -1));
 
         MainFrame.add(BookReturnPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 350, 170));
