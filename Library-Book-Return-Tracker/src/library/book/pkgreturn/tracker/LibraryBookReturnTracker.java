@@ -57,10 +57,7 @@ public class LibraryBookReturnTracker {
     }
 
     // Display the return stack
-    public String display() {
-        if (isEmpty()) {
-            System.out.println("Stack is empty.");
-        }
+    public String display() {     
         Node current = top;
         String result = "\t--- BOOK ID ---     ||    --- BOOK TITLE ---\n\n";
         while (current != null) {
