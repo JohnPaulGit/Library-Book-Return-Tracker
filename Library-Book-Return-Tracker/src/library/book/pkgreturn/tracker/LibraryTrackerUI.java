@@ -245,7 +245,16 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             int id = Integer.parseInt(BookID.getText());
             String title = BookTitle.getText();
             
+                 //Error message kung naa na ang id og title sa stack    
+            String currentScreenText = DisplayArea.getText();  
             
+            if (currentScreenText.contains(String.valueOf(id))
+                    || currentScreenText.contains(title)){
+              javax.swing.JOptionPane.showMessageDialog(this,
+                      "Error: This Book is already in the stack!");
+              return; // Stop here
+        }
+                   
             // Push to stack
             bookStack.push(id, title);
             // Update display and clear fields
