@@ -268,6 +268,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             
             // Update display and clear fields
             DisplayArea.setText(bookStack.display());
+            ReturnTextArea.setText("RECENT RETURN: [ID: " + id + "] " + title);
             BookID.setText("");
             BookTitle.setText("");
         } catch (Exception e) {
@@ -285,6 +286,8 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "The return cart is completely empty.");
+            RemoveTextArea.setText("");
+            ReturnTextArea.setText("Recent Return: None");
         }
 
     }//GEN-LAST:event_RemoveButtonActionPerformed
