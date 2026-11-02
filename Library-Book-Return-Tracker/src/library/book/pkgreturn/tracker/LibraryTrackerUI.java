@@ -43,9 +43,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookID = new javax.swing.JTextField();
         ActionPanel = new javax.swing.JPanel();
         ReturnedButton = new javax.swing.JButton();
-        ReturnTextArea = new javax.swing.JTextArea();
-        RemoveButton = new javax.swing.JButton();
         RemoveTextArea = new javax.swing.JTextArea();
+        RemoveButton = new javax.swing.JButton();
+        ReturnTextArea = new javax.swing.JTextArea();
         SearchButton = new javax.swing.JButton();
         BookIDSearch = new javax.swing.JTextField();
         BookTitleText1 = new javax.swing.JLabel();
@@ -136,9 +136,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         });
         ActionPanel.add(ReturnedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 190, 30));
 
-        ReturnTextArea.setColumns(20);
-        ReturnTextArea.setRows(5);
-        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
+        RemoveTextArea.setColumns(20);
+        RemoveTextArea.setRows(5);
+        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
@@ -152,12 +152,12 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         });
         ActionPanel.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 190, 30));
 
-        RemoveTextArea.setColumns(20);
-        RemoveTextArea.setRows(5);
-        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
+        ReturnTextArea.setColumns(20);
+        ReturnTextArea.setRows(5);
+        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
 
         SearchButton.setBackground(new java.awt.Color(255, 255, 255));
-        SearchButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         SearchButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchButton.setText("Search");
         SearchButton.setBorder(null);
@@ -256,10 +256,10 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             //Error message kung naa na ang id og title sa stack    
             String currentScreenText = DisplayArea.getText();  
             
-            if (currentScreenText.contains(String.valueOf(id))
-                    || currentScreenText.contains(title)){
-              javax.swing.JOptionPane.showMessageDialog(this,
-                      "Error: This Book is already in the stack!");
+            if (currentScreenText.contains("[ID: " + id + "]") 
+                || currentScreenText.contains(title)){
+                     javax.swing.JOptionPane.showMessageDialog(this, 
+                          "Error: This Book is already in the stack!");
               return; // Stop here
         }
                    
