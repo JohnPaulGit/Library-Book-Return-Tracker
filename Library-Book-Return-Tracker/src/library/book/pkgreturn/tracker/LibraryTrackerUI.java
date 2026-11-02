@@ -205,21 +205,31 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
-        // TODO add your handling code here:
+        
+String input = BookIDSearch.getText().trim();
+
+// Check if the search field is empty
+    if (input.isEmpty()) {
+    javax.swing.JOptionPane.showMessageDialog(this,
+            "Please enter a Book ID!");
+    return;
+    }
+
         try {
-        // Get the ID entered by the user
-        int searchID = Integer.parseInt(BookIDSearch.getText());
+    // Convert the input into an integer
+        int searchID = Integer.parseInt(input);
 
-        // Perform Linear Search
-        String result = bookStack.searchBook(searchID);
+    // Perform Linear Search
+         String result = bookStack.searchBook(searchID);
 
-        // Display the search result
+    // Display the search result
         javax.swing.JOptionPane.showMessageDialog(this, result);
 
     } catch (NumberFormatException e) {
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Please enter a valid Book ID!");
+      javax.swing.JOptionPane.showMessageDialog(this,
+            "Invalid Book ID! Please enter numbers only.");
     }
+
     }//GEN-LAST:event_SearchButtonActionPerformed
 
     private void ReturnedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReturnedButtonActionPerformed
