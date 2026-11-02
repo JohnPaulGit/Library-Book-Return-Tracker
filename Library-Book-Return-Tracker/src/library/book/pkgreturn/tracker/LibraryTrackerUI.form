@@ -165,7 +165,7 @@
             <Component class="javax.swing.JTextField" name="BookTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="18" style="0"/>
+                  <Font name="Segoe UI Historic" size="18" style="0"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -193,7 +193,7 @@
             <Component class="javax.swing.JTextField" name="BookID">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Light" size="18" style="0"/>
+                  <Font name="Segoe UI Historic" size="18" style="0"/>
                 </Property>
               </Properties>
               <Constraints>
