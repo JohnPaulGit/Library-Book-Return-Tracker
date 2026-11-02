@@ -15,18 +15,17 @@ This Java desktop app manages library book returns. We used a Stack (LIFO) built
 3. Run `LibraryTrackerUI.java` (Shift+F6).
 
 ## Team Roles & Contributions
-**Total Commits:** 
-**Pull Requests Reviewed:** 
 
 * Jhian Ryll Cutin
   * Contributions: Added Linear Search to search processed Book ID.
-  * Commits: [Count]
+                   Aided with Netbeans GUI tweaks and design.
+                   Assisted with Error to User Functionality.
+ 
 
 * John Paul Cedenio
   * Contributions: Designed the custom NetBeans JFrame GUI and connected UI buttons to the Stack operations.
                    Built custom `Node` and Stack data structure (`push`, `pop`, `search`).
                    Setup the repo and managed pull requests.
-  * Commits: [Count]
 
 ## GitHub Link
   [https://github.com/JohnPaulGit/Library-Book-Return-Tracker.git]
