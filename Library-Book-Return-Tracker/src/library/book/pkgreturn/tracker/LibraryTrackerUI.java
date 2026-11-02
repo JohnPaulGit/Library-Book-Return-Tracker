@@ -157,7 +157,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
 
         SearchButton.setBackground(new java.awt.Color(255, 255, 255));
-        SearchButton.setFont(new java.awt.Font("SimSun", 1, 12)); // NOI18N
+        SearchButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
         SearchButton.setForeground(new java.awt.Color(0, 0, 0));
         SearchButton.setText("Search");
         SearchButton.setBorder(null);
