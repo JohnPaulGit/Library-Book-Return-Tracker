@@ -270,7 +270,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             
             // Update display and clear fields
             DisplayArea.setText(bookStack.display());
-            ReturnTextArea.setText("\tRECENT RETURN: [ID: " + id + "] " + title);
+            ReturnTextArea.setText("RECENT RETURN: [ID: " + id + "] " + title);
             BookID.setText("");
             BookTitle.setText("");
         } catch (Exception e) {
@@ -285,7 +285,7 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
             if (processedBook != null) {
                 javax.swing.JOptionPane.showMessageDialog(this, "Successfully Processed:\n " + processedBook);
                 DisplayArea.setText(bookStack.display());
-                RemoveTextArea.setText("Just Popped: \n" + processedBook);
+                RemoveTextArea.setText("Just Popped:\n" + processedBook);
                 ReturnTextArea.setText("");
             }
         } catch (Exception e) {
