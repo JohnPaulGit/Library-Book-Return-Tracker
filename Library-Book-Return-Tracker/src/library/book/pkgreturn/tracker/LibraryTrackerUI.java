@@ -43,9 +43,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         BookID = new javax.swing.JTextField();
         ActionPanel = new javax.swing.JPanel();
         ReturnedButton = new javax.swing.JButton();
-        ReturnTextArea = new javax.swing.JTextArea();
+        wadsda = new javax.swing.JTextArea();
         RemoveButton = new javax.swing.JButton();
-        RemoveTextArea = new javax.swing.JTextArea();
+        dawoidasd = new javax.swing.JTextArea();
         SearchButton = new javax.swing.JButton();
         BookIDSearch = new javax.swing.JTextField();
         BookTitleText1 = new javax.swing.JLabel();
@@ -136,9 +136,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         });
         ActionPanel.add(ReturnedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 190, 30));
 
-        ReturnTextArea.setColumns(20);
-        ReturnTextArea.setRows(5);
-        ActionPanel.add(ReturnTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
+        wadsda.setColumns(20);
+        wadsda.setRows(5);
+        ActionPanel.add(wadsda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 300, 40));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
@@ -152,9 +152,9 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
         });
         ActionPanel.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 190, 30));
 
-        RemoveTextArea.setColumns(20);
-        RemoveTextArea.setRows(5);
-        ActionPanel.add(RemoveTextArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
+        dawoidasd.setColumns(20);
+        dawoidasd.setRows(5);
+        ActionPanel.add(dawoidasd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 300, 40));
 
         SearchButton.setBackground(new java.awt.Color(255, 255, 255));
         SearchButton.setFont(new java.awt.Font("SimSun", 1, 14)); // NOI18N
@@ -322,10 +322,10 @@ public class LibraryTrackerUI extends javax.swing.JFrame {
     private javax.swing.JPanel MainFrame;
     private javax.swing.JLabel RecordedBooksDetailsLabel;
     private javax.swing.JButton RemoveButton;
-    private javax.swing.JTextArea RemoveTextArea;
-    private javax.swing.JTextArea ReturnTextArea;
     private javax.swing.JButton ReturnedButton;
     private javax.swing.JButton SearchButton;
+    private javax.swing.JTextArea dawoidasd;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea wadsda;
     // End of variables declaration//GEN-END:variables
 }
